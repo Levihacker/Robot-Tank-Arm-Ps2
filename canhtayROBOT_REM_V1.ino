@@ -1,5 +1,11 @@
-#include <Servo.h>
 
+///////////////////////////////////////////////////////////////////////
+//           Robot rover ARM V6.1 H22                                //
+//           Update: Conect Camera ESP32                             //
+//           Tối ưu kết nối fix bug                                  //
+///////////////////////////////////////////////////////////////////////
+// thư viện
+#include <Servo.h>
 #include <PS2X_lib.h>
 // chân kết nối 
 #define PS2_DAT        13  //14    
@@ -118,17 +124,19 @@ void loop() {
  
   // điều khiển động cơ 
    if(ps2x.Button(PSB_PAD_UP)) {     // robot chạy tới 
-      tien(); 
-    } else if(ps2x.ButtonReleased(PSB_PAD_UP)){ dunglai(); }
+      tien();} 
+    else if(ps2x.ButtonReleased(PSB_PAD_UP)){ 
+      dunglai(); }
     if(ps2x.Button(PSB_PAD_RIGHT)){ // robot sang trái
-      trai();
-    }else if(ps2x.ButtonReleased(PSB_PAD_RIGHT)){ dunglai(); }
+      trai();}
+    else if(ps2x.ButtonReleased(PSB_PAD_RIGHT)){
+      dunglai(); }
     if(ps2x.Button(PSB_PAD_LEFT)){ // robot sang phải 
-      phai();
-    }else if(ps2x.ButtonReleased(PSB_PAD_LEFT)){ dunglai(); }
+      phai(); }
+    else if(ps2x.ButtonReleased(PSB_PAD_LEFT)){ dunglai(); }
     if(ps2x.Button(PSB_PAD_DOWN)){ // robot lùi về 
-     lui();
-    }else if(ps2x.ButtonReleased(PSB_PAD_DOWN)){ dunglai(); 
+     lui();}
+    else if(ps2x.ButtonReleased(PSB_PAD_DOWN)){ dunglai(); 
   }
 
   delay(10);
